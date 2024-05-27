@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Closure;
 use Filament\Forms;
 use App\Models\Post;
 use Filament\Tables;
@@ -41,14 +42,19 @@ class PostResource extends Resource
                             ->label('Judul')
                             ->autocomplete('off')
                             ->reactive()
-                            ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
-                                if ($operation === 'edit') {
+                            ->afterStateUpdated(function (Closure $set, $state, $context) {
+                                if ($context === 'edit') {
                                     return;
                                 }
 
                                 $set('slug', Str::slug($state));
                             }),
-                        TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true)->maxLength(150),
+                        TextInput::make('slug')
+                            ->required()
+                            ->minLength(1)
+                            ->autocomplete('off')
+                            ->unique(ignoreRecord: true)
+                            ->maxLength(150),
                         RichEditor::make('body')
                             ->label('Isi Konten')
                             ->required()
@@ -57,9 +63,15 @@ class PostResource extends Resource
                 )->columns(2),
                 Section::make('Meta')->schema(
                     [
-                        FileUpload::make('image')->image()->directory('posts/thumbnails')->label('Gambar Thumbnail'),
-                        DateTimePicker::make('published_at')->default(now())->nullable(),
-                        Checkbox::make('featured')->label('Jadikan Unggulan'),
+                        FileUpload::make('image')
+                            ->image()
+                            ->directory('posts/thumbnails')
+                            ->label('Gambar Thumbnail'),
+                        DateTimePicker::make('published_at')
+                            ->default(now())
+                            ->nullable(),
+                        Checkbox::make('featured')
+                            ->label('Jadikan Unggulan'),
                         Select::make('categories')
                             ->label('Kategori')
                             ->multiple()

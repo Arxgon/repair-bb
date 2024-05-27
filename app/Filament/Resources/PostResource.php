@@ -71,10 +71,11 @@ class PostResource extends Resource
                             ->directory('posts/thumbnails')
                             ->label('Gambar Thumbnail'),
                         DateTimePicker::make('published_at')
+                            ->label('Dipublikasikan Tanggal')
                             ->default(now())
                             ->nullable(),
                         Checkbox::make('featured')
-                            ->label('Jadikan Unggulan'),
+                            ->label('Jadikan Unggulan?'),
                         Select::make('categories')
                             ->label('Kategori')
                             ->multiple()
@@ -90,15 +91,16 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\ImageColumn::make('image')->label('Thumbnail'),
+                Tables\Columns\TextColumn::make('title')->label('Judul')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('published_at')
+                Tables\Columns\TextColumn::make('published_at')->label('dipublikasikan')
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('featured')
+                    ->label('Unggulan?')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()

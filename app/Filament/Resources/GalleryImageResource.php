@@ -38,6 +38,7 @@ class GalleryImageResource extends Resource
                 Section::make('Main Content')->schema(
                     [
                         TextInput::make('title')
+                            ->label('Judul')
                             ->required()->minLength(1)->maxLength(150)
                             ->reactive()
                             ->debounce(600)
@@ -50,10 +51,12 @@ class GalleryImageResource extends Resource
                             }),
                         TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true)->maxLength(150),
                         FileUpload::make('image')
+                            ->label('Thumbnail')
                             ->image()
                             ->directory('gallery/images')
                             ->columnSpanFull(),
                         RichEditor::make('description')
+                            ->label('Konten Gambar')
                             ->required()
                             ->fileAttachmentsDirectory('gallery/images')
                             ->columnSpanFull()
@@ -62,6 +65,7 @@ class GalleryImageResource extends Resource
                 Section::make('Album')->schema(
                     [
                         Select::make('album-image')
+                            ->label('Masukan ke Album?')
                             ->multiple()
                             ->relationship('albumImages', 'title')
                             ->searchable()
@@ -76,7 +80,7 @@ class GalleryImageResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title')->label('Judul')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),

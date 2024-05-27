@@ -41,6 +41,7 @@ class GalleryVideoResource extends Resource
                 Section::make('Main Content')->schema(
                     [
                         TextInput::make('title')
+                            ->label('Judul')
                             ->required()->minLength(1)->maxLength(150)
                             ->reactive()
                             ->debounce(600)
@@ -65,6 +66,7 @@ class GalleryVideoResource extends Resource
                             ->columnSpanFull()
                             ->autocomplete('off'),
                         RichEditor::make('description')
+                            ->label('Deskripsi Konten')
                             ->required()
                             ->fileAttachmentsDirectory('gallery/images')->columnSpanFull()
                     ]
@@ -72,6 +74,7 @@ class GalleryVideoResource extends Resource
                 Section::make('Album')->schema(
                     [
                         Select::make('album-video')
+                            ->label('Masukan ke Album?')
                             ->multiple()
                             ->relationship('albumVideos', 'title')
                             ->searchable()
@@ -87,7 +90,7 @@ class GalleryVideoResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('url')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title')->label('Judul')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),

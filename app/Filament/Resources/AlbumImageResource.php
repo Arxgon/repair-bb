@@ -27,6 +27,7 @@ class AlbumImageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label('Nama Album')
                     ->live()
                     ->debounce(600)
                     ->required()
@@ -47,7 +48,7 @@ class AlbumImageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title')->label('Nama Album')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),

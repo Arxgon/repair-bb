@@ -30,6 +30,7 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label('Nama Kategori')
                     ->live()
                     ->debounce(600)
                     ->required()
@@ -50,7 +51,7 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title')->label('Nama Kategori')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),

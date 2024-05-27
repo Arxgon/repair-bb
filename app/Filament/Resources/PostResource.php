@@ -38,12 +38,15 @@ class PostResource extends Resource
                 Section::make('Main Content')->schema(
                     [
                         TextInput::make('title')
-                            ->required()->minLength(1)->maxLength(150)
+                            ->required()
+                            ->minLength(1)
+                            ->maxLength(150)
                             ->label('Judul')
                             ->autocomplete('off')
-                            ->reactive()
-                            ->afterStateUpdated(function (Closure $set, $state, $context) {
-                                if ($context === 'edit') {
+                            // ->reactive()
+                            // ->debounce(600)
+                            ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
+                                if ($operation === 'edit') {
                                     return;
                                 }
 

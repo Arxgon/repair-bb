@@ -40,6 +40,7 @@ class GalleryImageResource extends Resource
                         TextInput::make('title')
                             ->required()->minLength(1)->maxLength(150)
                             ->reactive()
+                            ->debounce(600)
                             ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                                 if ($operation === 'edit') {
                                     return;

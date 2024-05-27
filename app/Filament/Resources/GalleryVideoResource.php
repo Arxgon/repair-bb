@@ -43,6 +43,7 @@ class GalleryVideoResource extends Resource
                         TextInput::make('title')
                             ->required()->minLength(1)->maxLength(150)
                             ->reactive()
+                            ->debounce(600)
                             ->autocomplete('off')
                             ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                                 if ($operation === 'edit') {

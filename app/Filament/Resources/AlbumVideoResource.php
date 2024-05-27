@@ -30,7 +30,10 @@ class AlbumVideoResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->live()
-                    ->required()->minLength(1)->maxLength(150)
+                    ->debounce(600)
+                    ->required()
+                    ->minLength(1)
+                    ->maxLength(150)
                     ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                         if ($operation === 'edit') {
                             return;

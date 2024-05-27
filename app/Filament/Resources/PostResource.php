@@ -43,8 +43,8 @@ class PostResource extends Resource
                             ->maxLength(150)
                             ->label('Judul')
                             ->autocomplete('off')
-                            // ->reactive()
-                            // ->debounce(600)
+                            ->reactive()
+                            ->debounce(600)
                             ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                                 if ($operation === 'edit') {
                                     return;

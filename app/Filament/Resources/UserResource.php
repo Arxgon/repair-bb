@@ -19,6 +19,8 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Kelola Admin';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -29,7 +31,8 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->endsWith(['@admin.com']),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()

@@ -1,0 +1,106 @@
+.glass {
+    background: rgba( 3, 3, 3, 0.6 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 9px );
+    -webkit-backdrop-filter: blur( 9px );
+    width: 100vw;
+    overflow: hidden;
+}
+
+.blur {
+    box-shadow: 0px 10px 10px white;
+}
+
+.filter-blur {
+    background: rgb(253,187,45);
+    background: linear-gradient(0deg, rgba(253,187,45,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+.test {
+    background: rgba(0, 0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 45%, rgba(166,166,166,1) 58%, rgba(255,255,255,1) 67%, rgba(255,255,255,1) 100%);
+}
+
+.custom-shape-divider-bottom {
+    position: absolute;
+    left: -5%;
+    width: 110%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.bottom-normal {
+    bottom: -20%;
+}
+
+.bottom-offside {
+    bottom: -23%;
+}
+
+.custom-shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 290px;
+}
+
+.custom-shape-divider-bottom .shape-fill {
+    fill: #FFFFFF;
+}
+
+.shape-fill-yellow {
+    fill: #ffc928;
+}
+
+.flipbook-viewport{
+    display: flex;
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	margin:auto;
+    justify-content: center;
+}
+
+.flipbook-viewport .page{
+	width:461px;
+	height:600px;
+	background-color:white;
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
+
+.flipbook .page{
+	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-o-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.flipbook-viewport .page img{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin:0;
+}
+
+.flipbook-viewport .shadow{
+	-webkit-transition: -webkit-box-shadow 0.5s;
+	-moz-transition: -moz-box-shadow 0.5s;
+	-o-transition: -webkit-box-shadow 0.5s;
+	-ms-transition: -ms-box-shadow 0.5s;
+
+	-webkit-box-shadow:0 0 20px #ccc;
+	-moz-box-shadow:0 0 20px #ccc;
+	-o-box-shadow:0 0 20px #ccc;
+	-ms-box-shadow:0 0 20px #ccc;
+	box-shadow:0 0 20px #ccc;
+}

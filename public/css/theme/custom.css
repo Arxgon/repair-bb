@@ -1,0 +1,38 @@
+.radius-right-bottom {
+    border-bottom-right-radius: 30px;
+    border-bottom: 5px solid #fbb717;
+}
+
+.radius-bottom {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom: 5px solid #fbb717;
+}
+
+.radius-bottom-info-terkini {
+    border-radius: 20px 10px 20px 0px;
+    outline: 2px solid #a6bcdc;
+}
+
+.radius-bottom-info {
+    border-radius: 10px 20px 10px 20px;
+    border-bottom: 1px solid #fbb717;
+    outline: 2px solid #fbb717;
+}
+
+.img-landing-newspu {
+    box-sizing: border-box;
+    display: block;
+    object-fit: cover;
+    height: 145px;
+}
+
+.home-intro {
+    background-color: #FFC928;
+    margin-bottom: 50px;
+    overflow: hidden;
+    padding: 10px 0;
+    position: relative;
+    text-align: left;
+    letter-spacing: -0.5px;
+}
